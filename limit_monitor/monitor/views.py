@@ -5,7 +5,7 @@ from .models import Limit
 from django.views.decorators.cache import cache_control
 
 # Create your views here.
-@cache_control(no_cache=True, must_validate=True, no_store=True)
+
 @login_required 
 def list_limits(request):
     limits = Limit.objects.all()
@@ -16,6 +16,7 @@ def list_limits(request):
 def create_limit(request):
     if request.method == 'POST':
         form = LimitForm(request.POST)
+        print(form)
         if form.is_valid():
             form.save()
             return redirect('limit_list')
