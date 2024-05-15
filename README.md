@@ -5,7 +5,6 @@ This is a Django application for monitoring limits based on fetched weather data
 
 ## Features
 - **Monitoring Logic**: Implements logic to compare fetched weather data with user-defined criteria and trigger actions if conditions are met.
-- **ERD**: Provides an Entity-Relationship Diagram (ERD) to visualize the database schema.
 - **CRUD Operations**: Allows users to perform CRUD operations on limit records.
 - **Status Update**: Defines conditions for updating the status of records and implements a scheduler task to periodically check and update records.
 
