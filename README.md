@@ -21,6 +21,10 @@ This is a Django application for monitoring limits based on fetched weather data
 - **Update**: Provides a form to edit existing records and updates them in the database.
 - **Delete**: Allows users to delete records from the database.
 
+### Status Update
+- Defines conditions for updating the status of records, such as reaching a certain date or meeting specific criteria.
+- Implements a scheduler task using Django's built-in task scheduler or external libraries like Celery to periodically check and update records' status in the database.
+
 
 ## Files and Directories
 - **/monitor**: Django app directory containing models, forms, views, and templates related to limit monitoring.
