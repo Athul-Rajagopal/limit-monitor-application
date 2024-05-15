@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Limits List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/limitList.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <form method="post" action="{% url 'logout' %}" class="logout-button">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+        <h1>Limits List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Criteria</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for limit in limits %}
+                    <tr>
+                        <td>{{ limit.location }}</td>
+                        <td>{{ limit.criteria }}</td>
+                        <td>{{ limit.status }}</td>
+                        <td>
+                            <a href="{% url 'limit_detail' limit.id %}">View</a>
+                            <a href="{% url 'update_limit' limit.id %}">Edit</a>
+                            <a href="{% url 'delete_limit' limit.id %}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'create_limit' %}" class="add-button">ADD</a>
+    </div>
+</body>
+</html>

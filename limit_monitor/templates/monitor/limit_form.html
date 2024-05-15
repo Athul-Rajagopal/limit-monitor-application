@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Limit Form{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/limitForm.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="{% url 'logout' %}" class="logout-button">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+        <h1>{% block heading %}Limit Form{% endblock %}</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="criteria">Criteria:</label>
+            <input type="text" id="criteria" name="criteria" required>
+
+            <label for="operator">Operator:</label>
+            <select id="operator" name="operator" required>
+                <option value="lt">&lt;</option>
+                <option value="gt">&gt;</option>
+                <option value="lte">&lt;=</option>
+                <option value="gte">&gt;=</option>
+                <option value="eq">==</option>
+            </select>
+
+            <label for="comparison_value">Comparison Value:</label>
+            <input type="number" id="comparison_value" name="comparison_value" required>
+
+            <label for="frequency">Frequency:</label>
+            <select id="frequency" name="frequency" required>
+                <option value="day">Day</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+            </select>
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>
